@@ -1,0 +1,79 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  """id"""
+  _id: ID!
+
+  """Name"""
+  name: String!
+
+  """Email"""
+  email: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Campaign {
+  name: String!
+}
+
+type Query {
+  users: [User!]!
+  user(id: Int!): User!
+  campaigns: [Campaign!]!
+  campaign(id: String!): Campaign!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User!
+  createCampaign(createCampaignInput: CreateCampaignInput!): Campaign!
+  updateCampaign(updateCampaignInput: UpdateCampaignInput!): Campaign!
+  removeCampaign(id: String!): Campaign!
+}
+
+input CreateUserInput {
+  """Name"""
+  name: String!
+
+  """Email"""
+  email: String!
+}
+
+input UpdateUserInput {
+  """Name"""
+  name: String
+
+  """Email"""
+  email: String
+  id: String!
+}
+
+input CreateCampaignInput {
+  """Example field (placeholder)"""
+  playerId: String!
+
+  """Example field (placeholder)"""
+  name: String!
+}
+
+input UpdateCampaignInput {
+  """Example field (placeholder)"""
+  playerId: String
+
+  """Example field (placeholder)"""
+  name: String
+  id: String!
+}
+
+type Subscription {
+  campaignAdded(id: String!): Campaign!
+}
